@@ -25,6 +25,7 @@ export default function Landing() {
 	const [song, setSong] = useState(noSong);
 	const [loading, setLoading] = useState(false);
 
+    console.log(process.env.REACT_APP_BASE_URL_API);
 	const handle_submit = async (event: any) => {
 		setLoading(true);
 		console.log("handle_submit");
