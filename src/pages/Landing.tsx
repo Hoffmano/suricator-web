@@ -1,19 +1,42 @@
-import { request } from "https";
 import React, { useState } from "react";
 import api from "../services/api";
+import ReactLoading from "react-loading";
 
 export default function Landing() {
+	const noSong = {
+		song: {
+			lyrics: "",
+			title: "",
+			primary_artist: {
+				name: "",
+			},
+			media: [
+				{
+					url: "",
+				},
+				{
+					url: "",
+				},
+			],
+		},
+	};
+
 	const [search, setSearch] = useState("");
-	const [song, setSong] = useState({ lyrics: "" });
+	const [song, setSong] = useState(noSong);
+	const [loading, setLoading] = useState(false);
 
 	const handle_submit = async (event: any) => {
-		event.preventDefault();
+		setLoading(true);
 		console.log("handle_submit");
+		setSong(noSong);
+		event.preventDefault();
+
 		await api
 			.get("/lyrics", {
 				params: { search_string: search },
 			})
 			.then((response) => {
+				setLoading(false);
 				setSong(response.data);
 			})
 			.catch(Error);
@@ -21,20 +44,36 @@ export default function Landing() {
 
 	return (
 		<div id="index">
-			{console.log("This")}
 			<div className="content-wrapper">
 				<h1>Suricator</h1>
-				<p>{search}</p>
+
 				<form onSubmit={handle_submit}>
 					<input
-						placeholder="Nome da música e/ou nome do artista"
+						placeholder="Nome da música e/ou artista"
 						id="search"
 						value={search}
 						onChange={(event) => setSearch(event.target.value)}
 					/>
-					<button type="submit">Search</button>
+
+					<button type="submit">Pesquisar</button>
 				</form>
-				<pre>{song.lyrics}</pre>
+
+				<div>
+					<h2>{song.song.title}</h2>
+
+					<h4>{song.song.primary_artist.name}</h4>
+
+					<div style={{ display: loading ? "block" : "none" }}>
+						<ReactLoading
+							type={"bars"}
+							color={"#555555"}
+							height={"20%"}
+							width={"20%"}
+						/>
+					</div>
+
+					<pre>{song.song.lyrics}</pre>
+				</div>
 			</div>
 		</div>
 	);
