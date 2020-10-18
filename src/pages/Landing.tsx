@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import api from "../services/api";
 import ReactLoading from "react-loading";
+import { rootCertificates } from "tls";
+import Spotify from "../components/Spotify";
 
 export default function Landing() {
 	const noSong = {
@@ -25,7 +27,7 @@ export default function Landing() {
 	const [song, setSong] = useState(noSong);
 	const [loading, setLoading] = useState(false);
 
-    console.log(process.env.REACT_APP_BASE_URL_API);
+	// console.log(process.env.REACT_APP_BASE_URL_API);
 	const handle_submit = async (event: any) => {
 		setLoading(true);
 		console.log("handle_submit");
@@ -46,6 +48,8 @@ export default function Landing() {
 	return (
 		<div id="index">
 			<div className="content-wrapper">
+				<Spotify />
+
 				<h1>Suricator</h1>
 
 				<form onSubmit={handle_submit}>
