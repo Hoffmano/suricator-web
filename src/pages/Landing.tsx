@@ -74,8 +74,8 @@ export default function Landing() {
 				dispatch(addLyrics(response.data));
 				nlp_api
 					.post("/", {
-						id: song_id,
-						lyrics: song_data.lyrics,
+						id: response.data.id,
+						lyrics: response.data.lyrics,
 					})
 					.then((response) => {
 						dispatch(addDifficulty(response.data.difficulty));
