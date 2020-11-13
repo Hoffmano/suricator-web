@@ -1,19 +1,19 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
-	AddSongsInterface,
-	AddLyricsInterface,
-	AddDifficultyInterface,
-} from "./types";
+	AddSongs,
+	AddLyrics,
+	AddDifficulty,
+} from "./Interfaces";
 
 const InitialState: any = {
 	songs: [],
 	song: {},
 };
 
-export function songsReducer(
+export function reducer(
 	state = InitialState,
-	action: AddSongsInterface | AddLyricsInterface | AddDifficultyInterface
+	action: AddSongs | AddLyrics | AddDifficulty
 ) {
 	switch (action.type) {
 		case "ADD_SONGS":
@@ -30,6 +30,6 @@ export function songsReducer(
 	}
 }
 
-const store = createStore(songsReducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools());
 
 export default store;

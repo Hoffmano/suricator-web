@@ -5,9 +5,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Landing from "./pages/Landing";
+import Landing from "./pages/Home";
 import Lyrics from "./pages/Lyrics";
-import Songs from "./pages/Songs";
 
 function Routes() {
 	return (
@@ -15,7 +14,6 @@ function Routes() {
 			<Switch>
 				<Route path="/" exact component={Landing} />
 				<Route path="/lyrics" component={Lyrics} />
-				{/* <Route path="/songs" component={Songs} /> */}
 			</Switch>
 		</BrowserRouter>
 	);
