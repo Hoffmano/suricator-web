@@ -7,7 +7,7 @@ export default function Header() {
     return (
 		<div>
 			<h1>
-				<a href="http://localhost:3000">
+				<a href="http://localhost:3000/#">
 					Suricator
 				</a>	
 			</h1>
