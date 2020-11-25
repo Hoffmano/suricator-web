@@ -1,3 +1,15 @@
 ul{
     display: flex;
+    list-style: none;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+.songs{
+    height: 150px;
+    width: 120px;
 }

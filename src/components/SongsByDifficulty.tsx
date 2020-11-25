@@ -87,7 +87,8 @@ export default function SongsByDifficulty() {
         console.log("test");
         setSongsC2(response.data);
       });
-  },[]);
+  }, []);
+
 
   return (
     <div>
@@ -96,12 +97,13 @@ export default function SongsByDifficulty() {
         {songsA1.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                style={{ width: 100,height:100 }}
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -116,6 +118,7 @@ export default function SongsByDifficulty() {
         {songsA2.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
@@ -136,6 +139,7 @@ export default function SongsByDifficulty() {
         {songsB1.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
@@ -156,6 +160,7 @@ export default function SongsByDifficulty() {
         {songsB2.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
@@ -176,6 +181,7 @@ export default function SongsByDifficulty() {
         {songsC1.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
@@ -196,6 +202,7 @@ export default function SongsByDifficulty() {
         {songsC2.map((song: any) => (
           <li>
             <button
+              className="songs"
               type="submit"
               key={song.id}
               onClick={() => handleLyrics(song.id)}
