@@ -15,8 +15,10 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/redux": "^3.6.0",
     "axios": "^0.20.0",
+    "bootstrap": "^4.5.3",
     "lyricist": "^2.2.2",
     "react": "^16.14.0",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^16.14.0",
     "react-favicon": "^0.0.18",
     "react-loading": "^2.0.3",
@@ -25,6 +27,7 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "text-selection-react": "^1.1.8",
     "typescript": "~3.7.2"
   },
   "scripts": {
