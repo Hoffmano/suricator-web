@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "../.."
+	},
+	{
+		"path": "../../../suricator-backend"
+	},
+	{
+		"path": "../../../nlp-lyrics-api"
+	}
+],
+  "settings": {}
+}

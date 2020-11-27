@@ -3,33 +3,34 @@ import { useImperativeHandle } from "react";
 import Button from "react-bootstrap/esm/Button";
 import Modal from "react-bootstrap/Modal";
 import { dictionaryAPI } from "../services/dictionary";
+import { unsplash } from "../services/image.js";
 
 export const Dictionary = forwardRef((props: any, ref: any) => {
   const [dictionary, setDictionary] = React.useState({} as any);
   const [definition, setDefinition] = React.useState("as");
   const [word, setWord] = React.useState("a");
+  const [image, setImage] = React.useState("");
   const [updated, setUpdated] = React.useState(false);
 
   useImperativeHandle(ref, () => ({
     setStates(word: any, definition: any) {
       setWord(word.charAt(0).toUpperCase() + word.slice(1));
-
       setDefinition(definition);
+      unsplash
+        .get("/search/photos", {
+          params: {
+            query: word,
+            per_page: 1,
+            orientation: "landscape",
+            client_id: "eTI_EfploaRU1Cf98dnWDYAMvh7ULx0l63ppybtV0P8",
+          },
+        })
+        .then((response: any) => {
+          console.log(response);
+          setImage(response.data.results[0].urls.regular);
+        });
     },
   }));
-
-  // useEffect(() => {
-  //   if (props.dictionary.word != undefined && !updated)
-  //     setWord(
-  //       props.dictionary.word.toString().charAt(0).toUpperCase() +
-  //         props.dictionary.word.slice(1)
-  //     );
-
-  //   if (props.dictionary != undefined && !updated) {
-  //     setDictionary(props.dictionary);
-  //     setDefinition(props.definition);
-  //   }
-  // });
 
   function getSelection() {
     let selectedWord = window.getSelection()?.toString();
@@ -41,6 +42,24 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
       );
 
       setDefinition(response.data[0].meanings[0].definitions[0].definition);
+
+      unsplash
+        .get("/search/photos", {
+          params: {
+            query: word,
+            per_page: 1,
+            orientation: "landscape",
+            client_id: "eTI_EfploaRU1Cf98dnWDYAMvh7ULx0l63ppybtV0P8",
+          },
+        })
+        .then((response: any) => {
+          console.log(response);
+          try {
+            setImage(response.data.results[0].urls.regular);
+          } catch (e) {
+            setImage("");
+          }
+        });
     });
   }
 
@@ -56,7 +75,8 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
           <Modal.Title id="contained-modal-title-vcenter">{word}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p onDoubleClick={getSelection}>{definition}</p>
+          <img src={image} alt="" />
+          <p onDoubleClick={getSelection}>Definição: {definition}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
