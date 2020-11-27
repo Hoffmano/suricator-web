@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Search from "../components/Search";
 import { dictionaryAPI } from "../services/dictionary";
 import { Dictionary } from "../components/Dictionary";
+import Footer from "../components/Footer";
 import "../styles/Lyrics.css"
 
 export default function Lyrics(this: any) {
@@ -68,6 +69,8 @@ export default function Lyrics(this: any) {
         dictionary={dictionary}
         definition={definition}
       />
+      <Footer />
     </div>
+
   );
 }
