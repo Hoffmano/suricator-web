@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { api } from "../services/API";
 import { SongData, SongList } from "../store/Interfaces";
+import "../styles/SongsByDifficulty.css";
+import "../styles/Songs.css"
 
 export default function Songs() {
     const dispatch = useDispatch();
 	const history = useHistory();
-	const songs = useSelector((state: any) => state.songs);
+	const songs = useSelector((state: any) => state.songs).slice(0, 5);
 
 	function addSongs(songs: []) {
 		return { type: "ADD_SONGS", songs };
@@ -63,20 +65,21 @@ export default function Songs() {
     };
     
 	return (
-		<div>
+		<div className="mt-3 mb-3">
 			<h2>{song.song.title}</h2>
 			<p>{song.song.primary_artist.name}</p>
 
-			<ul>
+			<ul className="difficultyList">
 				{songs.map((song: SongData) => (
-					<li>
+					<li className="song">
 						<button
+							className="songs"
 							type="submit"
 							key={song.id}
 							onClick={() => handleLyrics(song.id)}
 						>
 							<img
-								style={{ width: 100 }}
+								className="imageCover"
 								src={song.album_cover}
 								alt={song.title}
 							/>

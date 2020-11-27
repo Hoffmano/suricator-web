@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { api } from "../services/API";
 import ReactLoading from "react-loading";
+import "../styles/Search.css"
 
 export default function Search() {
     const dispatch = useDispatch();
@@ -33,26 +34,44 @@ export default function Search() {
     };
     
     return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<input
-					placeholder="Nome da música e/ou artista"
-					id="search"
-					value={search}
-					onChange={(event) => setSearch(event.target.value)}
-				/>
+		<header className="search masthead">
+			<div className="bg-circle-1 bg-circle"></div>
+			<div className="bg-circle-2 bg-circle"></div>
+			<div className="bg-circle-3 bg-circle"></div>
+			<div className="bg-circle-4 bg-circle"></div>
 
-				<button type="submit">Pesquisar</button>
-			</form>
+			<div className="container">
+				<form onSubmit={handleSubmit} className="search mx-auto">
+					<div className="input-group input">
+						<input
+							className="p-3 pl-4"
+							placeholder="Nome da música e/ou artista"
+							id="searchInput"
+							value={search}
+							onChange={(event) => setSearch(event.target.value)}
+						/>
+						
+						<div className="input-group-append">
+							<button 
+								type="submit"
+								id="searchButton"
+								className="btn btn-primary p-3">
+									Pesquisar
+							</button>
+						</div>
+					</div>
+				</form>
 
-			<div style={{ display: loading ? "block" : "none" }}>
-				<ReactLoading
-					type={"bars"}
-					color={"#555555"}
-					height={"20%"}
-					width={"20%"}
-				/>
+				<div style={{ display: loading ? "block" : "none" }}>
+					<ReactLoading
+						type={"bars"}
+						color={"#555555"}
+						height={"20%"}
+						width={"20%"}
+					/>
+				</div>
 			</div>
-		</div>
+			
+		</header>
 	);
 }

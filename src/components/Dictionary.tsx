@@ -3,6 +3,7 @@ import { useImperativeHandle } from "react";
 import Button from "react-bootstrap/esm/Button";
 import Modal from "react-bootstrap/Modal";
 import { dictionaryAPI } from "../services/dictionary";
+import "../styles/Dictionary.css"
 
 export const Dictionary = forwardRef((props: any, ref: any) => {
   const [dictionary, setDictionary] = React.useState({} as any);
@@ -52,14 +53,14 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header id="header" closeButton>
           <Modal.Title id="contained-modal-title-vcenter">{word}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p onDoubleClick={getSelection}>{definition}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button id="closeButton" onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     </div>

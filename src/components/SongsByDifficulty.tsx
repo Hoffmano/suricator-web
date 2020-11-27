@@ -91,11 +91,12 @@ export default function SongsByDifficulty() {
 
 
   return (
-    <div>
-      <h1>Dificuldade A1</h1>
-      <ul>
+    <div id="songsByDifficulty" className="mt-3 mb-3">
+      <h1 className="difficulty">Dificuldade A1</h1>
+      {/* <Container><Row><Col>teste</Col></Row></Container> */}
+      <ul className="difficultyList">
         {songsA1.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -103,7 +104,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100,height:100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -113,10 +114,10 @@ export default function SongsByDifficulty() {
         ))}
       </ul>
 
-      <h1>Dificuldade A2</h1>
-      <ul>
+      <h1 className="difficulty">Dificuldade A2</h1>
+      <ul className="difficultyList">
         {songsA2.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -124,7 +125,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -134,10 +135,10 @@ export default function SongsByDifficulty() {
         ))}
       </ul>
 
-      <h1>Dificuldade B1</h1>
-      <ul>
+      <h1 className="difficulty">Dificuldade B1</h1>
+      <ul className="difficultyList">
         {songsB1.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -145,7 +146,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -155,10 +156,10 @@ export default function SongsByDifficulty() {
         ))}
       </ul>
 
-      <h1>Dificuldade B2</h1>
-      <ul>
+      <h1 className="difficulty">Dificuldade B2</h1>
+      <ul className="difficultyList">
         {songsB2.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -166,7 +167,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -176,10 +177,10 @@ export default function SongsByDifficulty() {
         ))}
       </ul>
 
-      <h1>Dificuldade C1</h1>
-      <ul>
+      <h1 className="difficulty">Dificuldade C1</h1>
+      <ul className="difficultyList">
         {songsC1.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -187,7 +188,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
@@ -197,10 +198,10 @@ export default function SongsByDifficulty() {
         ))}
       </ul>
 
-      <h1>Dificuldade C2</h1>
-      <ul>
+      <h1 className="difficulty">Dificuldade C2</h1>
+      <ul className="difficultyList">
         {songsC2.map((song: any) => (
-          <li>
+          <li className="song">
             <button
               className="songs"
               type="submit"
@@ -208,7 +209,7 @@ export default function SongsByDifficulty() {
               onClick={() => handleLyrics(song.id)}
             >
               <img
-                style={{ width: 100 }}
+                className="imageCover"
                 src={song.album_cover}
                 alt={song.title}
               />
