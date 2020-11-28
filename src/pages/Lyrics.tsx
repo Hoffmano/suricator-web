@@ -20,11 +20,19 @@ export default function Lyrics(this: any) {
     dictionaryAPI.get(`/${word}`).then((response) => {
       setDictionary(response.data[0]);
       setDefinition(response.data[0].meanings[0].definitions[0].definition);
-
-      dictionaryRef.current.setStates(
-        response.data[0].word,
-        response.data[0].meanings[0].definitions[0].definition
-      );
+      if (response.data[0].phonetics[0])
+        dictionaryRef.current.setStates(
+          response.data[0].word,
+          response.data[0].meanings[0].definitions[0].definition,
+          response.data[0].phonetics[0].audio
+        );
+      else {
+        dictionaryRef.current.setStates(
+          response.data[0].word,
+          response.data[0].meanings[0].definitions[0].definition,
+          ""
+        );
+      }
 
       setModalShow(true);
     });
