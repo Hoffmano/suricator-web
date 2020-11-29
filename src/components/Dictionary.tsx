@@ -6,6 +6,7 @@ import { dictionaryAPI } from "../services/dictionary";
 import { api } from "../services/API";
 import "../styles/Dictionary.css";
 import ReactAudioPlayer from "react-audio-player";
+import { unsplash } from "../services/unsplash";
 
 export const Dictionary = forwardRef((props: any, ref: any) => {
   const [dictionary, setDictionary] = React.useState({} as any);
@@ -16,13 +17,31 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
   );
   const [updated, setUpdated] = React.useState(false);
   const [audio, setAudio] = useState("");
+  const [image, setImage] = useState("");
 
   useImperativeHandle(ref, () => ({
     async setStates(word: any, definition: any, audio: any) {
+      setImage("");
+      setWord("Carregando palavra");
       setWordTranslated("Carregando tradução");
+      setDefinition("Carregando definição");
       setWord(word.charAt(0).toUpperCase() + word.slice(1));
       setDefinition(definition);
       setAudio(audio);
+
+      // await unsplash
+      //   .get("/search/photos", {
+      //     params: {
+      //       query: word,
+      //       per_page: 1,
+      //       orientation: "landscape",
+      //       client_id: "eTI_EfploaRU1Cf98dnWDYAMvh7ULx0l63ppybtV0P8",
+      //     },
+      //   })
+      //   .then((response: any) => {
+      //     setImage(response.data.results[0].urls.regular);
+      //   });
+
       await api.get(`/translate/${word}`).then((response) => {
         // console.log(response);
         setWordTranslated(
@@ -33,7 +52,11 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
   }));
 
   async function getSelection() {
+    setImage("");
+    setWord("Carregando palavra");
     setWordTranslated("Carregando tradução");
+    setDefinition("Carregando definição");
+
     let selectedWord = window.getSelection()?.toString();
 
     dictionaryAPI.get(`/${selectedWord}`).then(async (response) => {
@@ -41,9 +64,23 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
         response.data[0].word.charAt(0).toUpperCase() +
           response.data[0].word.slice(1)
       );
-
       setDefinition(response.data[0].meanings[0].definitions[0].definition);
       setAudio(response.data[0].phonetics[0].audio);
+      setImage("");
+
+      // await unsplash
+      //   .get("/search/photos", {
+      //     params: {
+      //       query: word,
+      //       per_page: 1,
+      //       orientation: "landscape",
+      //       client_id: "eTI_EfploaRU1Cf98dnWDYAMvh7ULx0l63ppybtV0P8",
+      //     },
+      //   })
+      //   .then((response: any) => {
+      //     setImage(response.data.results[0].urls.regular);
+      //   });
+
       await api.get(`/translate/${response.data[0].word}`).then((response) => {
         setWordTranslated(
           response.data.charAt(0).toUpperCase() + response.data.slice(1)
@@ -55,6 +92,7 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
   return (
     <div>
       <Modal
+      id="modal"
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -63,16 +101,12 @@ export const Dictionary = forwardRef((props: any, ref: any) => {
         <Modal.Header id="header" closeButton>
           <Modal.Title id="contained-modal-title-vcenter">{word}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body id="body">
+          {/* <img src={image} alt={word} id="image-word" /> */}
           <ReactAudioPlayer src={audio} autoPlay controls />
           <p>Tradução: {wordTranslated}</p>
-          <p onDoubleClick={getSelection}>{definition}</p>
+          <p id="definition" onDoubleClick={getSelection}>Definição: {definition}</p>
         </Modal.Body>
-        <Modal.Footer>
-          <Button id="closeButton" onClick={props.onHide}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
