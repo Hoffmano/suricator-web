@@ -50,7 +50,7 @@ export default function Songs() {
 
   return (
     <div id="songsByDifficulty">
-      <h1 className="difficulty">Resultados</h1>
+      {songs.length != 0 && <h1 className="difficulty">Resultados</h1>}
 
       <ul className="difficultyList">
         {songs.map((song: SongData) => (
