@@ -5,6 +5,7 @@ import Favicon from "react-favicon";
 import { Provider } from "react-redux";
 import Store from "./store/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/Base.css"
 
 
 

@@ -1,0 +1,24 @@
+body {
+    background: #efefef;
+    font-family: 'Nunito', sans-serif;
+}
+
+button.btn-primary, button.btn-primary:active, button.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle {
+    background-color: #FEC271;
+    color: #fff;
+    outline: none;
+
+}
+
+button.btn-primary:hover{
+    background-color: #FEDDAF;
+    color: #DA7A26;
+}
+
+button.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #DA7A26;
+    color: #DA7A26;
+}

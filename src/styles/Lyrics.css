@@ -1,0 +1,53 @@
+#musicLyric{
+    text-align: center;
+    min-width: 500px;
+}
+#musicLyric pre {
+  display: inline-block;
+  text-align: left;
+  weight: 300px;
+    /* width: 200px; */
+    background-color:white;
+    border-style:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 .325rem .35rem rgba(0,0,0,.075)!important;
+    border-top-color:  #DA7A26;
+    border-top-width: 2;
+    border-top-style: solid;
+    padding: 50px;
+ }
+ 
+#musicInfos{
+    /* float: left; */
+    margin: 30px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title{
+  font-weight: 800;
+}
+
+#cover{
+  width:200px;
+  height: 200px;
+  border-radius:10px
+}
+
+#cover:hover{
+  opacity: 1;
+}
+
+#musicDetails{
+  margin:10px;
+  display:flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}

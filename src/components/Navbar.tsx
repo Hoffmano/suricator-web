@@ -6,8 +6,9 @@ dotenv.config();
 
 export default function Navbar() {
     return (
-		<nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow-sm">
-			<a href="/">
+		<nav className="navbar navbar-expand navbar-light topbar static-top shadow-sm">
+			<a href="/" className="logo">
+				<img className="logo pl-2" src="/meerkat.svg" alt="Logo Suricator"/>
 				Suricator
 			</a>
 		</nav>

@@ -1,0 +1,26 @@
+#closeButton{
+    border-style:none;
+    background-color:#FFA034;
+}
+
+#image-word{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#definition{
+    max-width: 400px;
+    text-align: justify;
+}
+#modal{
+    max-width: 500px;
+}

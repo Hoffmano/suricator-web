@@ -1,0 +1,17 @@
+nav {
+    height: 10vh;
+    background-color: #EAEAEA;
+}
+
+a.logo, a.logo:hover, a.logo:visited { 
+    text-decoration: none;
+    font-size: 2rem;
+    color: #DA7A26;
+    font-weight:bold
+}
+
+img.logo {
+    height: 40px;
+    width: auto;
+    transform: scaleX(-1);
+}

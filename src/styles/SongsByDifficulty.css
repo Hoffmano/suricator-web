@@ -3,13 +3,54 @@ ul{
     list-style: none;
 }
 
-img{
-    height: 100px;
-    width: 100px;
+.imageCover{
+    height: 200px;
+    width: 200px;
     object-fit: cover;
+    margin:6px;
+    margin-top:0px;
+    padding:0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+img:hover{
+    opacity: 0.6;
 }
 
 .songs{
-    height: 150px;
-    width: 120px;
+    height: 260px;
+    width: 200px;
+    background-color:white;
+    border-style:none;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 .325rem .35rem rgba(0,0,0,.075)!important;
+}
+
+.songs:hover{
+    opacity: 0.6;
+}
+
+.difficulty{
+    color: rgb(138, 74, 44);
+    font-size: large;
+    margin:0;
+    padding:0;
+    margin-left: 50px;
+    font-weight: 500;
+}
+
+#songsByDifficulty{
+    margin: 10px;
+}
+
+.difficultyList{
+}
+
+.song{
+    margin:10px;
+    padding:0;
 }
