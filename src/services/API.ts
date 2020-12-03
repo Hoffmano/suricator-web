@@ -13,6 +13,7 @@ export const api = axios.create({
     get: {
       "Content-Type": "application/json;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Request-Method":"GET"
     },
   },
 });
