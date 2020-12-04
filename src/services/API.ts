@@ -9,11 +9,17 @@ export const api = axios.create({
     post: {
       "Content-Type": "application/json;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Request-Method": "POST"
     },
     get: {
       "Content-Type": "application/json;charset=utf-8",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Request-Method":"GET"
+      "Access-Control-Request-Method": "GET",
+    },
+    options: {
+      "Content-Type": "application/json;charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Request-Method": "OPTIONS",
     },
   },
 });
